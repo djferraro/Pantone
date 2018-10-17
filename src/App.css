@@ -1,32 +1,267 @@
-.App {
+/*** General o> */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f0f0f0;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  position: relative;
+}
+
+/*** Header */
+h1 {
+  background-color: #fff;
+  color: #231f20;
+  font-size: 2.5rem;
+  font-weight: 200;
+  margin-bottom: 3rem;
+  padding: 3rem 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+h1 strong {
+  font-weight: 700;
+  margin-right: 1rem;
+  position: relative;
+}
+h1 strong sup {
+  font-size: 1rem;
+  position: absolute;
+}
+
+
+
+/*** Container */
+.container {
+  display: flex;  
+}
+
+.center {
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-basis: 1060px;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+}
+
+@media (max-width:1060px) {
+  .center {
+    flex-basis: 636px;
+  }
+}
+
+@media (max-width:636px) {
+  .center {
+    flex-basis: 424px;
+  }
+
+  h1 span {
+    display: block;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width:424px) {
+  .center {
+    flex-basis: 180px;
+  }
+}
+
+/*** Card */
+.card {
+  -webkit-perspective: 500;
+  perspective: 500;
+  cursor: pointer;
+  display: inline-block;
+  margin: 1rem;
+}
+.card:hover .inner {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+.card .inner {
+  transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+/*** Card common */
+.card,
+.front,
+.back {
+  height: 250px;
+  width: 180px;
+}
+
+.front,
+.back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.06);
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.pantone-tm {
+  color: #231f20;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+  position: relative;
+  text-transform: uppercase;
+}
+.pantone-tm sup {
+  font-size: 0.7rem;
+  position: absolute;
+}
+
+.color-info {
+  font-size: 0.8rem;
+  margin: 0.5rem 0;
+}
+
+/*** Card front */
+.front {
+  z-index: 2;
+}
+
+.details {
+  background-color: #fff;
+  bottom: 0;
+  height: 90px;
+  padding: 4px 12px 2px 12px;
+  position: absolute;
+  width: 100%;
+}
+
+.year {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  position: absolute;
+  right: -2px;
+  top: -63px;
+}
+
+/*** Card back */
+.back {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  background-color: #fff;
+  padding: 1.5rem 1.5rem 0;
   text-align: center;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.back ul {
+  margin-top: 1rem;
+  margin-top: 1rem;
+  list-style: none;
+  padding: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.back li {
+  transition: color 0.3s;
+  color: #888;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 8px 5px;
+  text-align: left;
+}
+.back li:hover {
+  color: #231f20;
+}
+.back li:not(:last-child) {
+  border-bottom: 1px solid #f0f0f0;
+}
+.back li span {
+  font-weight: normal;
+  float: right;
 }
 
-.App-link {
-  color: #61dafb;
+/*** Card colors */
+
+
+.pt-2018 .front {
+  background-color: #5f4b8b;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pt-2017 .front {
+  background-color: #88b04b;
+}
+
+.pt-2016a .front {
+  background-color: #f7cac9;
+}
+
+.pt-2016b .front {
+  background-color: #8ca4cf;
+}
+
+.pt-2015 .front {
+  background-color: #955251;
+}
+
+.pt-2014 .front {
+  background-color: #b565a7;
+}
+
+.pt-2013 .front {
+  background-color: #169c78;
+}
+
+.pt-2012 .front {
+  background-color: #f05442;
+}
+
+.pt-2011 .front {
+  background-color: #da4f70;
+}
+
+.pt-2010 .front {
+  background-color: #41b6ab;
+}
+
+.pt-2009 .front {
+  background-color: #f0bf59;
+}
+
+.pt-2008 .front {
+  background-color: #595ca1;
+}
+
+.pt-2007 .front {
+  background-color: #9c1b31;
+}
+
+.pt-2006 .front {
+  background-color: #decdbf;
+}
+
+.pt-2005 .front {
+  background-color: #4fb0ae;
+}
+
+.pt-2004 .front {
+  background-color: #e4583e;
+}
+
+.pt-2003 .front {
+  background-color: #7ac5c5;
+}
+
+.pt-2002 .front {
+  background-color: #c02034;
+}
+
+.pt-2001 .front {
+  background-color: #c94476;
+}
+
+.pt-2000 .front {
+  background-color: #9bb7d6;
 }
